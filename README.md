@@ -73,4 +73,3 @@ mvn spring-boot:run
 
 Your feedback is valuable. If you have any suggestions or improvements, please feel free to reach out.
 
-This section provides clear step-by-step instructions for cloning the repository, building the project, running the microservices, and accessing the application.
