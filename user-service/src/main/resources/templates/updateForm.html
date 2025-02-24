@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User expense</title>
+    <!-- Link to your external CSS file -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<form th:action="@{/users/update/{userId}(userId=${user.id})}" th:object="${user}" method="POST">
+    <!-- Hidden field to override POST with PUT -->
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-group">
+        <label for="id">Id:</label>
+        <!-- Binds this field to the 'id' property. It's better to make this read-only -->
+        <input type="text" id="id" th:field="*{id}" placeholder="User Id" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label for="name">name:</label>
+        <!-- Binds this input field to the 'expense' property of the user -->
+        <input type="text" id="name" th:field="*{name}" placeholder="Name" class="form-control" required/>
+    </div>
+    <div class="form-group">
+        <label for="expense">Expense:</label>
+        <!-- Binds this input field to the 'expense' property of the user -->
+        <input type="text" id="expense" th:field="*{expense}" placeholder="Enter expense" class="form-control" required/>
+    </div>
+    <button type="submit" class="btn btn-primary">Update User</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Multiple Users</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Add Multiple Users</h2>
+    <form th:action="@{/users/add-users}" th:object="${usersForm}" method="post">
+        <div id="userRows">
+            <div th:each="user, iterStat : ${usersForm.users}" class="user-row mb-2">
+                <input type="text" th:field="*{users[__${iterStat.index}__].name}" placeholder="Enter name" required/>
+                <input type="number" th:field="*{users[__${iterStat.index}__].expense}" placeholder="Enter expense" required/>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Users</button>
+    </form>
+</div>
+</body>
+</html>
+ml>
